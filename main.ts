@@ -20,7 +20,7 @@ function run(p, inp) {
     if (steps === 1000000) return done(10);
     if (pc < 0 || pc >= n) return done(9);
     const op = p[pc];
-    const valid = op <= 0x07 || (op >= 0x10 && op <= 0x22) || (op >= 0x30 && op <= 0x34) ||
+    const valid = op <= 0x07 || (op >= 0x10 && op <= 0x22 && op !== 0x1f) || (op >= 0x30 && op <= 0x34) ||
       op === 0x40 || op === 0x41 || (op >= 0x50 && op <= 0x53);
     if (!valid) return done(5);
     let imm = 0, pops = 0, pushes = 0;
